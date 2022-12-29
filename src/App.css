@@ -1,38 +1,242 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login_registration_wrapper {
+    position: fixed;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    border-radius: 15%;
+    padding: 2%;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, .75);
+    height: 25%;
+    width: 25%;
+    display: grid;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*-----------------------Login Styles-------------------------*/
+.login_content {
+    display: grid;
+    justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login_form {
+    display: grid;
+    grid-template-rows: 33.3% 33.3% 33.3%;
+    grid-row-gap: 5px;
+    /*justify-content: center;*/
 }
 
-.App-link {
-  color: #61dafb;
+.login_userName {
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login_password {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.login_submit_btn {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: #7cfc00;
+    color: blue;
+    height: 50%;
+    width: 50%;
+    justify-self: center;
+    align-self: center;
+    width: 60%;
+}
+
+.login_userName_input {
+    width: 100%;
+}
+
+.login_password_input {
+    width: 100%;
+}
+
+.login_not_a_member_text {
+    color: rgba(124, 252, 0, 0.68);
+    margin-top: 3px;
+}
+
+.login_registerHere_btn {
+    margin-top: 2px;
+    color: #7cfc00;
+}
+
+.login_registerHere_btn:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+
+/*-----------------------------------------------------------*/
+.register_overlay {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+}
+
+.modal_container {
+    position: fixed;
+    border-radius: 15%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: blue;
+    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, .75);
+    height: 260px;
+    padding: 0 10% 0 15%;
+}
+
+label {
+    color: #7cfc00;
+    font-size: 18px;
+}
+
+.modal_content {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-rows: 12.5% 12.5% 75%;
+    width: 250px;
+    /*max-width: 100%;*/
+}
+
+.register_form {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 50% 50%;
+}
+
+
+.close-btn {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: end;
+    padding: 15px 10px 0px 0px;
+    color: #7cfc00;
+}
+
+.register_title {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.firstName_labelStar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.firstName_input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.lastName_labelStar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.lastName_input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.userName_labelStar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.userName_input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.password_labelStar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.password_input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+.email_labelStar {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.email_input {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
+
+.submit_user_info {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 6;
+    grid-row-end: 7;
+    justify-self: center;
+    margin: 5px 0 0 0;
+    width: 150px;
+    height: 20px;
+    background-color: #7cfc00;
+    color: blue;
+}
+
+.text_input {
+    margin: 5px;
+}
+
+.input_title {
+    align-self: center;
+    color: #7cfc00;
 }
