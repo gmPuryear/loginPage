@@ -9,8 +9,11 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
         handleSubmit,
         reset,
         formState,
-        formState: {errors, isSubmitSuccessful}
-    } = useForm();
+        formState: {
+            errors,
+            isSubmitSuccessful}
+    }
+    = useForm();
 
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
@@ -43,56 +46,97 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
     const returningSomethingIfLoginDoesNotExist = () => <p>REGISTERED!</p>
 
 
-
-
     return (
         <div className="register_overlay">
             <div className="modal_container">
                 <div className="modal_content">
                     <div className="close-btn btn" onClick={() => {
                         setIsOpen(false);
-                    }}>&times;
+                    }}
+                    >
+                        &times;
                     </div>
-                    <p className="register_title input_title">Register</p>
-                    {/*closing modal on click*/}
-                    <form className="register_form" onSubmit={handleSubmit((currentUserRegistrationInfo) => {
-                        saveLoginCredentials(currentUserRegistrationInfo);
-                    })}>
+                    <p className="register_title input_title">
+                        Register
+                    </p>
+
+                    <form className="register_form"
+                          onSubmit={handleSubmit((currentUserRegistrationInfo) => {
+                              saveLoginCredentials(currentUserRegistrationInfo);
+                          })}
+                    >
 
                         <p className="firstName_labelStar label_star input_title">
                             <span className="required_star">*</span>
                             <label htmlFor={"firstName"}>First Name</label>
                         </p>
-                        <input {...register("firstName", {required: true})} className="firstName_input text_input"/>
+                        <input
+                            className="firstName_input text_input"
+                            {...register(
+                                "firstName",
+                                {
+                                    required: true
+                                })}
+                        />
 
                         <p className={"lastName_labelStar label_star input_title"}>
                             <span className="required_star">*</span>
                             <label htmlFor="lastName">Last Name</label>
                         </p>
-                        <input {...register("lastName", {required: true})} className="lastName_input text_input"/>
+                        <input
+                            className="lastName_input text_input"
+                            {...register(
+                                "lastName",
+                                {
+                                    required: true
+                                })}
+                        />
 
                         <p className="userName_labelStar label_star input_title">
                             <span className="required_star">*</span>
                             <label htmlFor="userName">User Name</label>
                         </p>
-                        <input {...register("userName", {required: true, maxLength: 25})}
-                               className="userName_input text_input"/>
+                        <input
+                            className="userName_input text_input"
+                            {...register(
+                                "userName",
+                                {
+                                    required: true,
+                                    maxLength: 25
+                                })}
+                        />
 
                         <p className="password_labelStar label_star input_title">
                             <span className="required_star">*</span>
                             <label htmlFor="password">Password</label>
                         </p>
-                        <input {...register("password", {required: true, minLength: 8, maxLength: 20})}
-                               className="password_input text_input"/>
+                        <input
+                            className="password_input text_input"
+                            {...register(
+                                "password",
+                                {
+                                    required: true,
+                                    minLength: 8,
+                                    maxLength: 24
+                                })}
+                        />
 
                         <p className="email_labelStar label_star input_title">
                             <span className="required_star">*</span>
                             <label htmlFor="email">Email</label>
                         </p>
-                        <input {...register("email", {required: true})} className="email_input text_input"/>
+                        <input
+                            className="email_input text_input"
+                            {...register(
+                                "email",
+                                {
+                                    required: true,
+                                    pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+                                })}
+                        />
+                        <error
 
-                        <button className="submit_user_info btn"
-                        >Register</button>
+                        <button className="submit_user_info btn">Register</button>
                         {/*<input className="submit_user_info btn" type="submit"/>*/}
                     </form>
                     {/*{userAlreadyExists && <p>User already exists</p>}*/}
