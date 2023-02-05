@@ -134,7 +134,6 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                                     pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
                                 })}
                         />
-                        <error
 
                         <button className="submit_user_info btn">Register</button>
                         {/*<input className="submit_user_info btn" type="submit"/>*/}
