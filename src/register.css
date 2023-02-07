@@ -1,0 +1,56 @@
+.modal_container {
+    background-color: white;
+    z-index: 1000;
+    position: fixed;
+    width: fit-content;
+    display: grid;
+    /*grid-template-rows: repeat(4, 1fr);*/
+    place-items: center;
+    /*padding: 0em 2em 2em 2em;*/
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    border-radius: 5%;
+}
+
+.form_container {
+    display: grid;
+    place-items: center;
+    padding: 0em 2em 2em 2em;
+}
+
+.close_modal_btn {
+    justify-self: start;
+    padding: .25em 0em 0em .75em;
+}
+
+.register_form {
+    display: grid;
+    place-items: center;
+}
+
+.label_star {
+    justify-self: start;
+}
+
+.submit_registration_info {
+    margin-top: 1em;
+    width: 100%;
+    border: none;
+    background-image: linear-gradient(to left, rgb(77, 120, 178), rgb(57, 46, 117));
+    color: white;
+    height: 20px;
+    border-radius: 25px;
+}
+
+.required_star {
+    color: firebrick;
+}
+
+.account_created_message {
+    color: rgb(57, 46, 117);
+    padding-top: .6em;
+}
+
+.user_already_exists_message {
+    color: firebrick;
+    padding-top: .6em;
+}

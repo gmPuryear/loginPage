@@ -1,3 +1,5 @@
+@import 'register';
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -19,13 +21,14 @@ body {
     width: fit-content;
     display: grid;
     place-items: center;
-    padding: 2rem;
+    padding: 2em;
+    z-index: 1;
 }
 
 .login_form {
     display: grid;
     place-items: center;
-    padding-bottom: 1rem;
+    padding-bottom: .75em;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
@@ -35,10 +38,10 @@ body {
 }
 
 .login_submit_btn {
-    margin-top: .5rem;
+    margin-top: 1em;
     width: 100%;
     border: none;
-    background-image: linear-gradient(to left, rgb(77, 120, 178), rgb(57, 46, 117)) ;
+    background-image: linear-gradient(to left, rgb(77, 120, 178), rgb(57, 46, 117));
     color: white;
     height: 20px;
     border-radius: 25px;
@@ -53,7 +56,7 @@ input {
     line-height: 1.6;
 }
 
-.login_title {
+h3 {
     padding-bottom: .5rem;
 }
 
@@ -86,4 +89,16 @@ input {
     align-self: end;
     padding-top: .5rem;
     font-size: 1em;
+}
+
+.signup_here_txt {
+    font-size: .75rem;
+}
+
+.signup_btn {
+text-decoration: underline;
+}
+
+.signup_btn:hover {
+    color: rgb(57, 46, 117);
 }
