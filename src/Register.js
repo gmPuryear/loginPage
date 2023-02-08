@@ -64,8 +64,7 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                           }
                       })}
                 >
-
-                    <p className="firstName_labelStar label_star input_title">
+                    <p className="label_star input_title">
                         <span className="required_star">*</span>
                         <label htmlFor={"firstName"}>First Name</label>
                     </p>
@@ -77,8 +76,9 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                                 required: true
                             })}
                     />
+                    {errors.firstName && <p className="required_message">This field is required</p>}
 
-                    <p className={"lastName_labelStar label_star input_title"}>
+                    <p className={"label_star input_title"}>
                         <span className="required_star">*</span>
                         <label htmlFor="lastName">Last Name</label>
                     </p>
@@ -90,6 +90,8 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                                 required: true
                             })}
                     />
+                    {errors.firstName && <p className="required_message">This field is required</p>}
+
 
                     <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -105,6 +107,7 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                                 maxLength: 24
                             })}
                     />
+                    {errors.firstName && <p className="required_message">This field is required</p>}
 
                     <p className="email_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -119,6 +122,7 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
                                 pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
                             })}
                     />
+                    {errors.firstName && <p className="required_message">This field is required</p>}
 
 
                     {

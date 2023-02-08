@@ -54,3 +54,13 @@
     color: firebrick;
     padding-top: .6em;
 }
+
+.required_message {
+    font-size: .75rem;
+    color: red;
+}
+
+.text_input {
+    min-width: 200px;
+    max-width: 300px;
+}
