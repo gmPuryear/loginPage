@@ -1,9 +1,8 @@
-import {useForm} from "react-hook-form";
-import {useState, useEffect, useCallback} from "react";
-import {v4 as uuid} from 'uuid';
-import axios from 'axios';
+import {useEffect, useState} from "react";
+import {useForm} from 'react-hook-form';
+const axios = require('axios');
 
-const Register = ({open, setIsOpen, userList, setUserList}) => {
+const RegisterModal = ({open, setIsOpen, userList, setUserList}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
     const {
@@ -144,4 +143,4 @@ const Register = ({open, setIsOpen, userList, setUserList}) => {
     )
 }
 
-export default Register;
+export default RegisterModal;

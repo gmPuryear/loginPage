@@ -11,7 +11,7 @@ const initialState = {
     user: null // When we get user data back from backend, this info will be put in here
 }
 
-function (state = initialState, action) { // action that is dispatched
+export default function(state = initialState, action) { // action that is dispatched
     const {
         type, payload} = action;
 
@@ -36,6 +36,4 @@ function (state = initialState, action) { // action that is dispatched
                     return state
             }
     }
-
-
 }
