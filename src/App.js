@@ -6,34 +6,33 @@ import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
 import {v4 as uuid} from 'uuid';
 import {useForm} from 'react-hook-form';
-import {Provider} from 'react-redux';
+
 
 const axios = require('axios');
-
-// Redux
 
 
 function App() {
 
     return (
-        <>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to='/'>Login</Link>
-                    </li>
-                    <li>
-                        <Link to='/Home'>Home</Link>
-                    </li>
-                </ul>
-            </nav>
-            <Routes>
-                <Route path='/' element= {<LoginPage/>}/>
-                <Route path='/Home' element= {<HomePage/>}/>
-                <Route path='*' element={<NotFoundPage/>}/>
-            </Routes>
-        </>
+            <>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to='/'>Login</Link>
+                        </li>
+                        <li>
+                            <Link to='/Home'>Home</Link>
+                        </li>
+                    </ul>
+                </nav>
+                <Routes>
+                    <Route path='/' element={<LoginPage/>}/>
+                    <Route path='/Home' element={<HomePage/>}/>
+                    <Route path='*' element={<NotFoundPage/>}/>
+                </Routes>
+            </>
     );
+
 }
 
 export default App;

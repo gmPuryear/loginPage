@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react";
 import {useForm} from 'react-hook-form';
-const axios = require('axios');
+import {connect} from 'react-redux'; // this connects this component to redux
+// import {register} from '../actions/auth';
+import axios from 'axios';
+import {setAlert} from '../actions/alert';
 
-const RegisterModal = ({open, setIsOpen, userList, setUserList}) => {
+const RegisterModal = ({setAlert, open, setIsOpen}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
     const {
@@ -39,7 +42,6 @@ const RegisterModal = ({open, setIsOpen, userList, setUserList}) => {
                 <form className="register_form"
                       onSubmit={handleSubmit(async (currentUserRegistrationInfo) => {
                           const newUser = currentUserRegistrationInfo;
-                          // console.log(newUser)
                           try {
                               const config = {
                                   headers: {
@@ -50,16 +52,16 @@ const RegisterModal = ({open, setIsOpen, userList, setUserList}) => {
                               const body = JSON.stringify(newUser); // this is the body that will be sent to backend
 
                               const res = await axios.post('http://localhost:6060/api/users', body, config);
-
-                              // res.data && setUserDoesNotExist(true);
                               if (res.data) {
+                                  setAlert("YAY! ACCOUNT CREATED!"); // this is pass this in as a message to our
+                                    // actions then generate id, then dispatch the message
                                   setUserAlreadyExists(false);
                                   setUserDoesNotExist(true);
                               }
 
                           } catch(err) {
                               setUserAlreadyExists(true);
-                              console.error(err.response.data);
+                              console.log(err);
                           }
                       })}
                 >
@@ -143,4 +145,4 @@ const RegisterModal = ({open, setIsOpen, userList, setUserList}) => {
     )
 }
 
-export default RegisterModal;
+export default connect(null, {setAlert}) (RegisterModal); // connect takes in 2 things: any stay you want to map, and object with any actions
