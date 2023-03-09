@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 const axios = require('axios');
 
 const LoginPage = () => {
-    const [openModal, setOpenModal] = useState(false);
+    // const [openModal, setOpenModal] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const {register, handleSubmit} = useForm();
 
