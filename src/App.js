@@ -1,14 +1,13 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
+import RegisterModalContext from './components/RegisterModalContext';
 import {Link, Route, Routes} from 'react-router-dom';
 import LoginPage from './components/LoginPage';
 import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
 import {v4 as uuid} from 'uuid';
 import {useForm} from 'react-hook-form';
-
-
-const axios = require('axios');
+// const axios = require('axios');
 
 
 function App() {
