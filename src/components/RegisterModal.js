@@ -1,14 +1,18 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import RegisterSuccessModal from './RegisterSuccessModal';
+import RegisterModalContext from './RegisterModalContext';
 
 // After user successfully logs in, take them to another modal page that asks them to login with the success message
 
 const RegisterModal = ({open, setIsOpen}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
+
+    const registerModalContext = useContext(RegisterModalContext);
+
     const {
         register,
         handleSubmit,
@@ -30,7 +34,7 @@ const RegisterModal = ({open, setIsOpen}) => {
     return (
         <div className="modal_container">
             <p className="close_modal_btn btn" onClick={() => {
-                setIsOpen(false);
+                registerModalContext.toggleShowRegisterModal(false);
             }}
             >
                 &times;
@@ -51,8 +55,6 @@ const RegisterModal = ({open, setIsOpen}) => {
                               password
                           } = newUserInfo;
 
-                          // registerUser({firstName, lastName, email, password});
-
                           try {
                               const config = {
                                   headers: {
@@ -66,7 +68,7 @@ const RegisterModal = ({open, setIsOpen}) => {
 
                               if (res.status === 200) {
                                   setUserDoesNotExist(true);
-                                  setIsOpen(false);
+                                  // registerModalContext.toggleShowRegisterModal(false);
                               }
 
 
@@ -152,11 +154,12 @@ const RegisterModal = ({open, setIsOpen}) => {
                 {/*    <button onClick={() => setIsOpen(false)}>Login Here!</button>*/}
                 {/*    </>*/}
                 {/*}*/}
+
                 {
                     userDoesNotExist
                     &&
                     <>
-                        <RegisterSuccessModal setIsOpen={setIsOpen}/>
+                        <RegisterSuccessModal/>
                     </>
                 }
             </div>

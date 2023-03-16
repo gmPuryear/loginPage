@@ -11,8 +11,17 @@ import {useForm} from 'react-hook-form';
 
 
 function App() {
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
+    // const toggleShowRegisterModal = (val) => {
+    //     setShowRegisterModal(val);
+    // }
+
+    const toggleShowRegisterModal = (val) => {
+        setShowRegisterModal(val);
+    }
 
     return (
+        <RegisterModalContext.Provider value={{showRegisterModal, toggleShowRegisterModal}}>
             <>
                 <nav>
                     <ul>
@@ -30,6 +39,7 @@ function App() {
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Routes>
             </>
+        </RegisterModalContext.Provider>
     );
 
 }

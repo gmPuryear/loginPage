@@ -1,5 +1,6 @@
 @import './css/LoginPageStyles.css';
 @import './css/RegisterPageStyles.css';
+@import './css/RegisterSuccessModalStyles.css';
 
 *, *::before, *::after {
     box-sizing: border-box;

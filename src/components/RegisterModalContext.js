@@ -2,8 +2,7 @@ import {createContext} from 'react';
 
 const RegisterModalContext = createContext({
     showRegisterModal: undefined,
-    toggleShowRegisterModal:() =>
+    toggleShowRegisterModal:() =>{}
 })
-
 
 export default RegisterModalContext;
