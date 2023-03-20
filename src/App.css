@@ -10,8 +10,12 @@
 
 body {
     display: grid;
-    place-items: center;
-    line-height: 1.6;
-    min-height: 100vh;
-    background-image: url('./images/wave_background_44.jpg');
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    background: url('./images/wave_background_44.jpg') no-repeat;
+}
+
+button {
+    cursor: pointer;
 }

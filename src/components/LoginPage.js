@@ -9,10 +9,10 @@ const axios = require('axios');
 const LoginPage = () => {
     // const [openModal, setOpenModal] = useState(false);
     // const [isOpen, setIsOpen] = useState(false);
-    const {register, handleSubmit} = useForm();
-
+    
     const registerModalContext = useContext(RegisterModalContext);
 
+    const {register, handleSubmit} = useForm();
 
     const ifUserExists = (userData) => {
         const currentUserName = userData.userName;
@@ -20,6 +20,7 @@ const LoginPage = () => {
     }
 
     return (
+
         <div className="login_card">
             <h3 className="login_title">Login</h3>
 

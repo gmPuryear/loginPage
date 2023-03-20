@@ -1,6 +1,5 @@
 .modal_container {
     background-color: white;
-    z-index: 1000;
     position: fixed;
     width: fit-content;
     display: grid;
