@@ -1,6 +1,7 @@
 import {configureStore} from "@reduxjs/toolkit";
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import authReducer from "./slices/authSlice";
 
 // 3 main things of REDUX Toolkit:
     // 1. State: initial values assigned to variables
@@ -10,9 +11,9 @@ import thunk from 'redux-thunk';
 // Redux "createSlice()" slices: allows for you to code all state, actions, and reducers as paramaters
 export const store = configureStore ({
     reducer: {
-
+        auth: authReducer
     }
     })
 
-
+ 
 export default store;

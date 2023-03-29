@@ -1,31 +1,53 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState, useContext, useReducer} from 'react';
 import {v4 as uuid} from 'uuid';
 import RegisterModal from './RegisterModal';
 import {useForm} from 'react-hook-form';
 import RegisterModalContext from './RegisterModalContext';
-
-const axios = require('axios');
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const LoginPage = () => {
-    // const [openModal, setOpenModal] = useState(false);
-    // const [isOpen, setIsOpen] = useState(false);
-    
+        
     const registerModalContext = useContext(RegisterModalContext);
 
     const {register, handleSubmit} = useForm();
 
-    const ifUserExists = (userData) => {
-        const currentUserName = userData.userName;
-        const currentPassword = userData.password;
-    }
+    // const auth = useSelector((state) => state.auth)
+    // console.log(auth);
 
     return (
 
         <div className="login_card">
             <h3 className="login_title">Login</h3>
 
-            <form className="login_form" onSubmit={handleSubmit((userData) => {
-                ifUserExists(userData);
+            <form className="login_form" onSubmit={handleSubmit(async (loginUserData) => {
+
+                const {
+                    userName,
+                    password
+                } = loginUserData;
+
+                const config = {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }
+
+                const body = JSON.stringify(loginUserData);
+
+
+                try {
+                    
+                    const res = await axios.post('http://localhost:6060/api/auth', body, config);
+                    console.log(res);   
+
+                } catch (err) {
+                        // console.log(err);
+
+                    }
+                    // USE AUTH ROUTE FOR LOGIN. CHECK FOR TOkEN AND IF PRESENT, SAVE TO LOCALSTORAGE
+
+                    
             })}>
                 <p className="login_email_label" htmlFor="userName">Email</p>
                 <input className="login_email_input" {...register("userName", {required: true})}/>

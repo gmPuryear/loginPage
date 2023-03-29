@@ -9,13 +9,20 @@
 }
 
 body {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    height: 100vh;
+    /*display: grid;*/
+    /*align-items: center;*/
+    /*justify-items: center;*/
+    /*height: 100vh;*/
     background: url('./images/wave_background_44.jpg') no-repeat;
 }
 
-button {
+.btn, button {
     cursor: pointer;
+}
+
+.test {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

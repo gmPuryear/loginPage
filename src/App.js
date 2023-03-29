@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import RegisterModalContext from './components/RegisterModalContext';
 import {Link, Route, Routes} from 'react-router-dom';
 import LoginPage from './components/LoginPage';
+import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
 import {v4 as uuid} from 'uuid';
@@ -25,18 +26,18 @@ function App() {
             }
         }>
             <>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to='/'>Login</Link>
-                        </li>
-                        <li>
-                            <Link to='/Home'>Home</Link>
-                        </li>
-                    </ul>
-                </nav>
+                {/*<nav>*/}
+                {/*    <ul>*/}
+                {/*        <li>*/}
+                {/*            <Link to='/'>Login</Link>*/}
+                {/*        </li>*/}
+                {/*        <li>*/}
+                {/*            <Link to='/Home'>Home</Link>*/}
+                {/*        </li>*/}
+                {/*    </ul>*/}
+                {/*</nav>*/}
                 <Routes>
-                    <Route path='/' element={<LoginPage/>}/>
+                    <Route path='/' element={<LandingPage/>}/>
                     <Route path='/Home' element={<HomePage/>}/>
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Routes>
