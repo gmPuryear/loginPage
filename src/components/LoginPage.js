@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 const LoginPage = () => {
-        
+
     const registerModalContext = useContext(RegisterModalContext);
 
     const {register, handleSubmit} = useForm();
@@ -23,7 +23,7 @@ const LoginPage = () => {
             <form className="login_form" onSubmit={handleSubmit(async (loginUserData) => {
 
                 const {
-                    userName,
+                    email,
                     password
                 } = loginUserData;
 
@@ -42,15 +42,15 @@ const LoginPage = () => {
                     console.log(res);   
 
                 } catch (err) {
-                        // console.log(err);
+                        console.log(err);
 
                     }
                     // USE AUTH ROUTE FOR LOGIN. CHECK FOR TOkEN AND IF PRESENT, SAVE TO LOCALSTORAGE
 
                     
             })}>
-                <p className="login_email_label" htmlFor="userName">Email</p>
-                <input className="login_email_input" {...register("userName", {required: true})}/>
+                <p className="login_email_label" htmlFor="email">Email</p>
+                <input className="login_email_input" {...register("email", {required: true})}/>
 
                 <p className="login_password_label" htmlFor="password">Password</p>
                 <input className="login_password_input" {...register("password", {required: true})}/>

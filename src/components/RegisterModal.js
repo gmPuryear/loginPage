@@ -70,7 +70,6 @@ const RegisterModal = ({open, setIsOpen}) => {
                                       'Content-Type': 'application/json'
                                   }
                               }
-                              console.log(newUserInfo);
 
                               const body = JSON.stringify(newUserInfo); // this is the body that will be sent to backend
 
