@@ -1,10 +1,12 @@
 import React, {useEffect, useState, useContext, useReducer} from 'react';
+import { useNavigate } from "react-router-dom";
 import {v4 as uuid} from 'uuid';
 import RegisterModal from './RegisterModal';
 import {useForm} from 'react-hook-form';
 import RegisterModalContext from './RegisterModalContext';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { useSignIn } from 'react-auth-kit';
 
 const LoginPage = () => {
 
@@ -12,8 +14,12 @@ const LoginPage = () => {
 
     const {register, handleSubmit} = useForm();
 
+    const navigate = useNavigate();
+
     // const auth = useSelector((state) => state.auth)
     // console.log(auth);
+
+    const signIn = useSignIn(); // takes care of all authentication
 
     return (
 
@@ -39,15 +45,26 @@ const LoginPage = () => {
                 try {
                     
                     const res = await axios.post('http://localhost:6060/api/auth', body, config);
-                    console.log(res);   
+                    console.log(res.data.token);   
+
+                    if (res.status === 200) {
+                        console.log(loginUserData);
+                        signIn({
+                            token: res.data.token,
+                            expiresIn: .5,
+                            tokenType: "Bearer",
+                            authState: {email: loginUserData.email}
+                })
+                navigate('/home');
+                    }
+                    
+
 
                 } catch (err) {
                         console.log(err);
 
                     }
                     // USE AUTH ROUTE FOR LOGIN. CHECK FOR TOkEN AND IF PRESENT, SAVE TO LOCALSTORAGE
-
-                    
             })}>
                 <p className="login_email_label" htmlFor="email">Email</p>
                 <input className="login_email_input" {...register("email", {required: true})}/>

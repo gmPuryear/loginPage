@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
 import {v4 as uuid} from 'uuid';
 import {useForm} from 'react-hook-form';
+import { RequireAuth } from 'react-auth-kit';
 
 
 function App() {
@@ -38,7 +39,10 @@ function App() {
                 {/*</nav>*/}
                 <Routes>
                     <Route path='/' element={<LandingPage/>}/>
-                    <Route path='/Home' element={<HomePage/>}/>
+                    <Route path='/Home' element={<RequireAuth loginPath='/'>
+                        <HomePage/>
+                        </RequireAuth>}>
+                        </Route>
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Routes>
             </>

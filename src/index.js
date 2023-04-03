@@ -12,15 +12,14 @@ root.render(
         <AuthProvider
         authType={'cookie'}
         authName={'_auth'}
-        cookieDomain={'window.location.hostname'}
         cookieSecure={false}
-        />
-
+        >
         {/*"BrowserRouter" provides information in routing to all components to make everything work*/}
         <BrowserRouter>
             <Provider store={store}>
                 <App/>
             </Provider>
         </BrowserRouter>
+        </AuthProvider>
     </React.StrictMode>
 );
