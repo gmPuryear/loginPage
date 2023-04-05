@@ -13,11 +13,18 @@
 }
 
 .login_form {
-    display: grid;
+    /* display: grid;
     place-items: center;
     padding-bottom: .75em;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr); */
+    display: flex;
+    flex-direction: column;
+
+}
+
+p {
+    width: 100%;
 }
 
 .login_submit_btn {
@@ -72,14 +79,14 @@ h3 {
 }
 
 .login_password_label {
-    justify-self: start;
-    align-self: end;
+    /* justify-self: start; */
     padding-top: .5rem;
     font-size: 1em;
 }
 
 .signup_here_txt {
     font-size: .75rem;
+    padding-top: .5rem;
 }
 
 .signup_btn {
