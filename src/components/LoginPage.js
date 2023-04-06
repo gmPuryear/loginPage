@@ -72,6 +72,7 @@ const LoginPage = () => {
 
                 } catch (err) {
                     console.log(err);
+                    console.log("runn it here")
                 }
             })}>
                 <p className="login_email_label" htmlFor="email">Email</p>

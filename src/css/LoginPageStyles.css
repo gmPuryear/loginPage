@@ -13,11 +13,7 @@
 }
 
 .login_form {
-    /* display: grid;
-    place-items: center;
-    padding-bottom: .75em;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr); */
+
     display: flex;
     flex-direction: column;
 
@@ -90,6 +86,7 @@ h3 {
 }
 
 .signup_btn {
+    padding-left: .25rem;
     text-decoration: underline;
     cursor: pointer;
 }

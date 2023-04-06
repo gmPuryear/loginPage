@@ -61,3 +61,11 @@
     min-width: 200px;
     max-width: 300px;
 }
+
+.input_title {
+    padding-top: .25rem;
+}
+
+.password_length_note {
+    font-size: .75em;
+}
