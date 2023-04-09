@@ -130,7 +130,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                                 maxLength: 24
                             })}
                     />
-                    <p className="password_length_note">min 8 characters</p>
+                    <p className="password_length_note">&#x2022;Min 8 characters</p>
                     {errors.firstName && <p className="required_message">This field is required</p>}
 
                     <p className="email_labelStar label_star input_title">

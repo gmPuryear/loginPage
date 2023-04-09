@@ -27,3 +27,20 @@ body {
     font-size: .75rem;
     color: red;
 }
+
+nav {
+    border-bottom-style: solid;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.homePage_text {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}

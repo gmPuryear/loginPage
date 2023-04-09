@@ -1,11 +1,9 @@
-import React, {useEffect, useState, useContext, useReducer} from 'react';
+import React, {useEffect, useContext} from 'react';
 import {useNavigate} from "react-router-dom";
-import {v4 as uuid} from 'uuid';
 import RegisterModal from './RegisterModal';
 import {useForm} from 'react-hook-form';
 import RegisterModalContext from './RegisterModalContext';
 import axios from 'axios';
-import {useSelector} from 'react-redux';
 import {useSignIn} from 'react-auth-kit';
 
 const LoginPage = () => {
@@ -63,7 +61,7 @@ const LoginPage = () => {
                     if (res.status === 200) {
                         signIn({
                             token: res.data.token,
-                            expiresIn: .5,
+                            expiresIn: 300,
                             tokenType: "Bearer",
                             authState: {email: loginUserData.email}
                         })
