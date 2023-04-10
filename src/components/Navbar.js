@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import LogOutModal from "./LogOutModal";
 
 const Navbar = () => {
+    const [showLogoutModal, setShowLogoutModal] = useState(false);
 
     return (
             <nav>
@@ -10,6 +13,12 @@ const Navbar = () => {
                     </li>
                     <li>
                         <Link to='/Home'>Home</Link>
+                    </li>
+                    <li>
+                        <p className="open_logout_modal_btn" onClick={() => setShowLogoutModal(true)}>
+                            Logout
+                        </p>
+                        {showLogoutModal && <LogOutModal/>}
                     </li>
                 </ul>
             </nav>
