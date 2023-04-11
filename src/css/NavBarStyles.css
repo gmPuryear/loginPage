@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+    height: 1.5em;
+    border-bottom: 1px solid black;
+    align-items: center;
+    height: 2em;
+    width: 100%;
+}
+
+ul {
+    display: flex;
+    justify-content: end;
+    list-style: none;
+    width: 100%;
+    column-gap: 10px;
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+li:hover {
+    font-size: 2rem;
+    /* border-color: black; */
+}

@@ -2,6 +2,7 @@
 @import './css/RegisterPageStyles.css';
 @import './css/RegisterSuccessModalStyles.css';
 @import './css/LogoutModal.css';
+@import './css/NavBarStyles.css';
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -27,23 +28,6 @@ body {
 .required_message {
     font-size: .75rem;
     color: red;
-}
-
-nav {
-    display: flex;
-    background-color: white;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-    height: 1.5em;
-    border-bottom: 1px solid black;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-ul {
-    display: flex;
-    list-style: none;
-    justify-content: space-around;
-    width: 25%;
 }
 
 .homePage_text {
