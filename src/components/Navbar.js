@@ -18,7 +18,7 @@ const Navbar = () => {
                         <p className="open_logout_modal_btn" onClick={() => setShowLogoutModal(true)}>
                             Logout
                         </p>
-                        {showLogoutModal && <LogOutModal/>}
+                        {showLogoutModal && <LogOutModal setShowLogoutModal={setShowLogoutModal}/>}
                     </li>
                 </ul>
             </nav>
