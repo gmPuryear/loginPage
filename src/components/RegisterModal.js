@@ -56,6 +56,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                 <form className="register_form"
                       onSubmit={handleSubmit(async (currentUserRegistrationInfo) => {
                           const newUserInfo = currentUserRegistrationInfo;
+                          console.log(newUserInfo);
 
                           const {
                               firstName, 
