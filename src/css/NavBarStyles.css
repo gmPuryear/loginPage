@@ -25,17 +25,18 @@ li {
     cursor: pointer;
 }
 
-li:active{
+link:visited {
     color: red;
 }
 
 li:hover {
     border-left: 2px solid rgb(77, 120, 178);
     border-right: 2px solid rgb(77, 120, 178);
-    padding: 0px 3px 0px 3px;
+    padding: 0px 2px 0px 2px;
 }
 
-.linko {
-    color: black;
+a:-webkit-any-link {
     text-decoration: none;
-}
+    color: black;
+    cursor: pointer;
+  }

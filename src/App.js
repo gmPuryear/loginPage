@@ -5,13 +5,15 @@ import { Route, Routes } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
-import { RequireAuth } from 'react-auth-kit';
+import { RequireAuth, useIsAuthenticated } from 'react-auth-kit';
 import Navbar from './components/Navbar';
 import AboutPage from './components/AboutPage';
 
 
 function App() {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
+    
+
 
 
     const toggleShowRegisterModal = (val) => {
@@ -30,11 +32,8 @@ function App() {
                     <Route path='/' element={<LandingPage/>}/>
                     <Route path='/AboutPage' element={<AboutPage/>}/>
                     <Route path='/Home' element={<RequireAuth loginPath='/'>
-                    {/* protected component that displays when user is logged in*/}
-                    <Navbar/> 
                     {/* protected route... */}
                         <HomePage/> 
-                        <AboutPage/>
                         </RequireAuth>}>
                         </Route>
                     <Route path='*' element={<NotFoundPage/>}/>
