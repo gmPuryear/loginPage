@@ -3,6 +3,8 @@
 @import './css/RegisterSuccessModalStyles.css';
 @import './css/LogoutModal.css';
 @import './css/NavBarStyles.css';
+@import './css/AboutPageStytles.css';
+
 
 *, *::before, *::after {
     box-sizing: border-box;
