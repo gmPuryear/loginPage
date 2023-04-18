@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react';
+import React, {useEffect, useContext, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 import RegisterModal from './RegisterModal';
 import {useForm} from 'react-hook-form';
@@ -6,7 +6,10 @@ import RegisterModalContext from './RegisterModalContext';
 import axios from 'axios';
 import {useSignIn} from 'react-auth-kit';
 
+
+
 const LoginPage = () => {
+    const [userLoginSuccess, setUserLoginSuccess] = useState('');
 
     const registerModalContext = useContext(RegisterModalContext);
 
@@ -31,6 +34,11 @@ const LoginPage = () => {
     const navigate = useNavigate();
 
     const signIn = useSignIn(); // takes care of all authentication
+
+    // const waitToClearLoginErrorMessage = () => {
+    //     setTimeout(() => {
+    //         reset();
+    //     }, 5000);
 
     return (
 
@@ -68,8 +76,13 @@ const LoginPage = () => {
                         navigate('/home');
                     }
 
-                } catch (err) {
-                    console.log(err);
+                } catch (res) {
+                    setError('invalid_credentials', { 
+                        message: 'email and/or password incorrect'
+                      })
+                      setTimeout(() => {
+                        reset();
+                    }, 1000);
                 }
             })}>
                 <p className="login_email_label" htmlFor="email">Email</p>
@@ -80,7 +93,6 @@ const LoginPage = () => {
                            })
                 }/>
                 {errors.email && <p className='required_message'>This field is required</p>}
-                
 
                 <p className="login_password_label" htmlFor="password">Password</p>
                 <input className="login_password_input" type='password' 
@@ -93,7 +105,7 @@ const LoginPage = () => {
 
                 <button className="login_submit_btn btn" type="submit">Login</button>
             </form>
-
+            {errors.invalid_credentials && <p className='error_message invalid_login_message'>Email or password do not match our records</p>}
             <p className="signup_here_txt" onClick={() => {
                 registerModalContext.toggleShowRegisterModal(true);
                 }}>Need an account? 

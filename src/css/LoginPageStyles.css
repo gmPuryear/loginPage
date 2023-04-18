@@ -16,7 +16,6 @@
 
     display: flex;
     flex-direction: column;
-
 }
 
 p {
@@ -81,7 +80,7 @@ h3 {
 
 .signup_here_txt {
     font-size: .75rem;
-    padding-top: .5rem;
+    padding-top: 4px;
 }
 
 .signup_btn {
