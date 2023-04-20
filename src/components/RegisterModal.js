@@ -155,7 +155,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                     }
                     <button className="submit_registration_info btn">Register</button>
                 </form>
-                {/*{*/}
+                {/* {*/}
                 {/*    userDoesNotExist*/}
                 {/*    &&*/}
                 {/*    <>*/}
@@ -172,7 +172,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                 {/*        <div className="register_success_overlay"></div>*/}
                 {/*        <RegisterSuccessModal/>*/}
                 {/*    </div>)*/}
-                {/*}*/}
+                {/*} */}
             </div>
         </div>
 )}</>
