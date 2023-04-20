@@ -1,5 +1,7 @@
 .about_text_container {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     background-color: white;
     top: 50%;
     left: 50%;
@@ -8,6 +10,7 @@
     border-radius: 25px;
     padding: 20px;
     width: 80%;
+    max-height: 650px;
 }
 
 .about_text_container a {
@@ -16,4 +19,9 @@
 
 .about_paragraph_line {
     text-indent: 30px;
+}
+
+.about_project_header {
+    display: flex;
+    justify-content: center;
 }

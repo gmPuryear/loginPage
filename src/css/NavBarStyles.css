@@ -35,6 +35,12 @@ li:hover {
     padding: 0px 2px 0px 2px;
 }
 
+li:active {
+    border-left: 2px solid rgb(77, 120, 178);
+    border-right: 2px solid rgb(77, 120, 178);
+    padding: 0px 2px 0px 2px;
+}
+
 a:-webkit-any-link {
     text-decoration: none;
     color: black;
