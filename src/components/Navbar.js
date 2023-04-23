@@ -4,7 +4,7 @@ import LogOutModal from "./LogOutModal";
 import AboutPage from "./AboutPage";
 
 const Navbar = () => {
-    const [showLogoutModal, setShowLogoutModal] = useState(false);
+    const [showLogoutModal, setShowLogoutModal] = useState();
 
     return (
             <nav>
@@ -19,7 +19,7 @@ const Navbar = () => {
                         <p className="open_logout_modal_btn" onClick={() => setShowLogoutModal(true)}>
                             Logout
                         </p>
-                        {showLogoutModal && <LogOutModal setShowLogoutModal={setShowLogoutModal}/>}
+                        {showLogoutModal && <LogOutModal setShowLogoutModal= {setShowLogoutModal}/>}
                     </li>
                 </ul>
             </nav>

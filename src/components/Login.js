@@ -25,20 +25,16 @@ const LoginPage = () => {
         }
     } = useForm();
 
-    useEffect(() => {
-        if (formState.isSubmitSuccessful) {
-            reset()
-        }
-    })
+    // useEffect(() => {
+    //     if (formState.isSubmitSuccessful) {
+    //         console.log("from Use effect");
+    //         reset()
+    //     }
+    // })
 
     const navigate = useNavigate();
 
     const signIn = useSignIn(); // takes care of all authentication
-
-    // const waitToClearLoginErrorMessage = () => {
-    //     setTimeout(() => {
-    //         reset();
-    //     }, 5000);
 
     return (
 
@@ -82,7 +78,7 @@ const LoginPage = () => {
                       })
                       setTimeout(() => {
                         reset();
-                    }, 1000);
+                    }, 2000);
                 }
             })}>
                 <p className="login_email_label" htmlFor="email">Email</p>
@@ -98,7 +94,9 @@ const LoginPage = () => {
                 <input className="login_password_input" type='password' 
                         {...register("password",
                             {
-                                required: true
+                                required: true,
+                                minLength: 8,
+                                maxLength: 24
                             })
                 }/>
                 {errors.password && <p className='required_message'>This field is required</p>}

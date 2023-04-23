@@ -14,8 +14,6 @@ function App() {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
     
 
-
-
     const toggleShowRegisterModal = (val) => {
         setShowRegisterModal(val);
     }
@@ -30,12 +28,18 @@ function App() {
             <>
                 <Routes>
                     <Route path='/' element={<LandingPage/>}/>
-                    <Route path='/AboutPage' element={<AboutPage/>}/>
-                    <Route path='/Home' element={<RequireAuth loginPath='/'>
-                    {/* protected route... */}
+    {/* -------------------protected routes------------------------ */}
+                    <Route path='/AboutPage' 
+                    element={<RequireAuth loginPath='/'>
+                        <AboutPage/>
+                        </RequireAuth>}>
+                        </Route>
+                    <Route path='/Home' 
+                    element={<RequireAuth loginPath='/'>
                         <HomePage/> 
                         </RequireAuth>}>
                         </Route>
+    {/* ---------------------------------------------------------- */}
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Routes>
             </>

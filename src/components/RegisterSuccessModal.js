@@ -7,8 +7,6 @@ const RegisterSuccessModal = (setIsOpen) => {
 
     return (
         <div className="register_success_container">
-            {/*<div className="register_success_overlay"></div>*/}
-            {/*<div className="register_success_container">*/}
                 <h1>You're signed up!</h1>
                 <button className='goTo_Login_btn' onClick={() => {
                     registerModalContext.toggleShowRegisterModal(false);
@@ -16,7 +14,6 @@ const RegisterSuccessModal = (setIsOpen) => {
                 >
                     Login Here!
                 </button>
-            {/*</div>*/}
         </div>
     )
 }

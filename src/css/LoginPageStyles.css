@@ -50,7 +50,7 @@ h3 {
 
 .login_email_label {
     justify-self: start;
-    align-self: end;
+    align-self: flex-end;
     font-size: 1em;
     grid-row: 1 / 2;
 }

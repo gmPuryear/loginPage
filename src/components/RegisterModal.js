@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import RegisterSuccessModal from './RegisterSuccessModal';
 import RegisterModalContext from './RegisterModalContext';
 
-// After user successfully logs in, take them to another modal page that asks them to login with the success message
 
 const RegisterModal = ({open, setIsOpen}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
@@ -25,11 +24,11 @@ const RegisterModal = ({open, setIsOpen}) => {
     }
         = useForm();
 
-    useEffect(() => {
-        if (formState.isSubmitSuccessful) {
-            reset()
-        }
-    })
+    // useEffect(() => {
+    //     if (formState.isSubmitSuccessful) {
+    //         reset()
+    //     }
+    // })
 
     return (
         <>
@@ -56,7 +55,6 @@ const RegisterModal = ({open, setIsOpen}) => {
                 <form className="register_form"
                       onSubmit={handleSubmit(async (currentUserRegistrationInfo) => {
                           const newUserInfo = currentUserRegistrationInfo;
-                          console.log(newUserInfo);
 
                           const {
                               firstName, 

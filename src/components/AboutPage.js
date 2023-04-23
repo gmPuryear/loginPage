@@ -13,10 +13,9 @@ const AboutPage = () => {
         {userIsLoggedIn && <Navbar/>}
         <div className="about_text_container">
             <section>
-                <p>
-                    <h1 className="about_project_header">About Project</h1>
-                </p>
-
+                
+                <h1 className="about_project_header">About Project</h1>
+                
                 <br/>
                 
                 <p className="about_paragraph_line">
@@ -26,10 +25,8 @@ const AboutPage = () => {
 
                 <br/>
 
-                <p className="about_headers">
-                    <h4>Frontend</h4>
-                </p>
-
+                    <h4 className="about_headers">Frontend</h4>
+            
                 <p className="about_paragraph_line">
                     I used <a href="https://authkit.arkadip.dev/" target="_blank"> <u>React Auth Kit</u> </a>
                     for authentication on the front-end as well as for authentication state management. Using React Auth kit 
@@ -45,10 +42,8 @@ const AboutPage = () => {
 
                 <br/>
 
-                <p className="about_headers">
-                    <h4>Backend</h4>
-                </p>
-                
+                <h4>Backend</h4>
+            
                 <p className="about_paragraph_line">
                     I set up my backend using Express and Node JS to create my REST API. For validation on the backend I used
                     <a href="https://express-validator.github.io/docs/" target="_blank"><u> Express validator</u></a>.

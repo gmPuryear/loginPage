@@ -11,7 +11,7 @@ nav {
 
 ul {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     list-style: none;
     width: 100%;
     column-gap: 10px;

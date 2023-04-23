@@ -1,4 +1,4 @@
-import LoginPage from './LoginPage';
+import LoginPage from './Login';
 import RegisterModalContext from './RegisterModalContext';
 import RegisterModal from './RegisterModal';
 import {useContext} from "react";
