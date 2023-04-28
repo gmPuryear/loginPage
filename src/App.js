@@ -6,7 +6,6 @@ import LandingPage from './components/LandingPage';
 import HomePage from './components/HomePage';
 import NotFoundPage from './components/NotFoundPage';
 import { RequireAuth, useIsAuthenticated } from 'react-auth-kit';
-import Navbar from './components/Navbar';
 import AboutPage from './components/AboutPage';
 
 

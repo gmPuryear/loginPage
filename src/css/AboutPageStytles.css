@@ -9,8 +9,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     border-radius: 25px;
     padding: 20px;
-    width: 80%;
-    max-height: 650px;
+    width: fit-content;
+    /* width: 80%;
+    max-height: 650px; */
 }
 
 .about_text_container a {

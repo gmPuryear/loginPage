@@ -60,7 +60,9 @@ const LoginPage = () => {
 
                 try {
 
-                    const res = await axios.post('http://localhost:6060/api/auth', body, config);
+                    // const res = await axios.post('http://localhost:6060/api/auth', body, config); // localhost
+
+                    const res = await axios.post('https://login-page-server-gp.herokuapp.com/', body, config); // Heroku Deployment
 
                     if (res.status === 200) {
                         signIn({
