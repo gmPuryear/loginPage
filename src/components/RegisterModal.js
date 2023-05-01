@@ -73,7 +73,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                               const body = JSON.stringify(newUserInfo); // this is the body that will be sent to backend
 
                             //   const res = await axios.post('http://localhost:6060/api/users', body, config);
-                              const res = await axios.post('https://login-page-server-gp.herokuapp.com/api/auth', body, config);
+                              const res = await axios.post('https://login-page-server-gp.herokuapp.com/api/users', body, config);
                         
                               if (res.status === 200) {
                                   setUserDoesNotExist(true);
