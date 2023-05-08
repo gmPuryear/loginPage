@@ -36,7 +36,6 @@ const RegisterModal = ({open, setIsOpen}) => {
             userDoesNotExist?
         (
             <>
-                {/*<div className="register_success_overlay"></div>*/}
                 <RegisterSuccessModal/>
             </>)
                 :
@@ -154,24 +153,6 @@ const RegisterModal = ({open, setIsOpen}) => {
                     }
                     <button className="submit_registration_info btn">Register</button>
                 </form>
-                {/* {*/}
-                {/*    userDoesNotExist*/}
-                {/*    &&*/}
-                {/*    <>*/}
-                {/*    <p className="account_created_message">You're signed up!</p>*/}
-                {/*    <button onClick={() => setIsOpen(false)}>Login Here!</button>*/}
-                {/*    </>*/}
-                {/*}*/}
-
-                {/*{*/}
-                {/*    userDoesNotExist*/}
-                {/*    &&*/}
-                {/*    (*/}
-                {/*    <div>*/}
-                {/*        <div className="register_success_overlay"></div>*/}
-                {/*        <RegisterSuccessModal/>*/}
-                {/*    </div>)*/}
-                {/*} */}
             </div>
         </div>
 )}</>
