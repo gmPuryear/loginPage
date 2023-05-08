@@ -120,14 +120,15 @@ const RegisterModal = ({open, setIsOpen}) => {
                         <label htmlFor="password">Password</label>
                     </p>
                     <input
-                        className="password_input text_input"
-                        {...register(
-                            "password",
-                            {
-                                required: true,
-                                minLength: 8,
-                                maxLength: 24
-                            })}
+                    type='password'
+                    className="password_input text_input"
+                    {...register(
+                        "password",
+                        {
+                            required: true,
+                            minLength: 8,
+                            maxLength: 24
+                        })}
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
                     {errors.firstName && <p className="required_message">This field is required</p>}
