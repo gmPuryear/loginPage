@@ -114,6 +114,21 @@ const RegisterModal = ({open, setIsOpen}) => {
                     />
                     {errors.firstName && <p className="required_message">This field is required</p>}
 
+                    <p className="email_labelStar label_star input_title">
+                        <span className="required_star">*</span>
+                        <label htmlFor="email">Email</label>
+                    </p>
+                    <input
+                        className="email_input text_input"
+                        {...register(
+                            "email",
+                            {
+                                required: true,
+                                pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
+                            })}
+                    />
+                    {errors.firstName && <p className="required_message">This field is required</p>}
+
 
                     <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -133,20 +148,25 @@ const RegisterModal = ({open, setIsOpen}) => {
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
                     {errors.firstName && <p className="required_message">This field is required</p>}
 
-                    <p className="email_labelStar label_star input_title">
+                    <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="password">Confirm Password</label>
                     </p>
                     <input
-                        className="email_input text_input"
-                        {...register(
-                            "email",
-                            {
-                                required: true,
-                                pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
-                            })}
+                    type='password'
+                    className="password_input text_input"
+                    {...register(
+                        "password",
+                        {
+                            required: true,
+                            minLength: 8,
+                            maxLength: 24
+                        })}
                     />
+                    {/* <p className="password_length_note">&#x2022;Min 8 characters</p> */}
                     {errors.firstName && <p className="required_message">This field is required</p>}
+
+                    
                     {
                         userAlreadyExists
                         &&
