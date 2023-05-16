@@ -16,7 +16,6 @@ const RegisterModal = ({open, setIsOpen}) => {
         register,
         handleSubmit,
         reset,
-        formState,
         formState: {
             errors,
             isSubmitSuccessful
@@ -147,6 +146,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
                     {errors.firstName && <p className="required_message">This field is required</p>}
+                    {errors?.password?.types?.minLength && <p>password minLength 8</p>}
 
                     <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>

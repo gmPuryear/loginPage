@@ -1,11 +1,14 @@
 .about_text_container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
+    /* position: absolute; */
+    display: grid;
+    grid-column: 1;
+    place-items: center;
+    /* flex-direction: column; */
     background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    width: 50%;
     box-shadow: 0 0 20px rgba(0, 0, 0, .5);
     border-radius: 25px;
     padding: 20px;
