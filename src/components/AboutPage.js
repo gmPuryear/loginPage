@@ -9,7 +9,7 @@ const AboutPage = () => {
 
 
     return (
-        <>
+        <div className="about_page_container">
         {userIsLoggedIn && <Navbar/>}
         <div className="about_text_container">
             <section>
@@ -60,7 +60,7 @@ const AboutPage = () => {
 
             </section>
         </div>
-        </>
+        </div>
     )
 }
 
