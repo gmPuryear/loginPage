@@ -26,7 +26,7 @@ const RegisterModal = ({open, setIsOpen}) => {
         }
     }
         = useForm({
-            resolver: yupResolver(RegisterFormSchema)
+            resolver: yupResolver({RegisterFormSchema})
         });
         
         // const schema = yup.object({
