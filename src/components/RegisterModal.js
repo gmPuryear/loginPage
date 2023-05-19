@@ -9,7 +9,6 @@ import RegisterModalContext from './RegisterModalContext';
 import RegisterFormSchema from "./RegisterFormSchema";
 
 
-console.log(RegisterFormSchema);
 const RegisterModal = ({open, setIsOpen}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
@@ -44,10 +43,7 @@ const RegisterModal = ({open, setIsOpen}) => {
     //         reset()
     //     }
     // })
-
-
-    const onSubmit = (data, e) => console.log(data, e);
-
+    
     return (
         <>
         {
