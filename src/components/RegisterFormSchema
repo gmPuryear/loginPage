@@ -3,7 +3,7 @@ import {yupResolver} from "@hookform/resolvers";
 
 const RegisterFormSchema = yup.object({
         firstName: yup.string().required(),
-        lastname: yup.string().required(),
+        lastName: yup.string().required(),
         email: yup.email().required(),
         password: yup.string().minLength(8).required(),
         confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required // this compares confirm password input to password input

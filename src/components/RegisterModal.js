@@ -67,7 +67,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                 </h3>
                 
                 <form className="register_form"
-                      onSubmit={handleSubmit(async (currentUserRegistrationInfo) => {
+                      onSubmit={handleSubmit(async(currentUserRegistrationInfo) => {
                           const newUserInfo = currentUserRegistrationInfo;
 
                           const {
@@ -140,7 +140,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                     <input
                     type='password'
                     className="password_input text_input"
-                    {...register('firstName')} 
+                    {...register('password')} 
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
                     <p>{errors.password?.message}</p>
