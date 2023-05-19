@@ -1,11 +1,15 @@
-import {useContext, useEffect, useState} from "react";
+import {useContext, useEffect, useState, useRef} from "react";
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import * as yup from "yup";
+import {yupResolver} from "@hookform/resolvers/yup";
 import RegisterSuccessModal from './RegisterSuccessModal';
 import RegisterModalContext from './RegisterModalContext';
+import RegisterFormSchema from "./RegisterFormSchema";
 
 
+console.log(RegisterFormSchema);
 const RegisterModal = ({open, setIsOpen}) => {
     const [userDoesNotExist, setUserDoesNotExist] = useState(false);
     const [userAlreadyExists, setUserAlreadyExists] = useState(false);
@@ -16,18 +20,33 @@ const RegisterModal = ({open, setIsOpen}) => {
         register,
         handleSubmit,
         reset,
+        watch,
         formState: {
             errors,
             isSubmitSuccessful
         }
     }
-        = useForm();
+        = useForm({
+            resolver: yupResolver(RegisterFormSchema),
+        });
+        
+        // const schema = yup.object({
+        //     firstName: yup.string().required(),
+        //     lastname: yup.string().required(),
+        //     email: yup.email().required(),
+        //     password: yup.string().minLength(8).required(),
+        //     confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required // this compares confirm password input to password input
+        // })
+    
 
     // useEffect(() => {
     //     if (formState.isSubmitSuccessful) {
     //         reset()
     //     }
     // })
+
+
+    const onSubmit = (data, e) => console.log(data, e);
 
     return (
         <>
@@ -50,6 +69,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                 <h3 className="register_title input_title">
                     Register
                 </h3>
+                
                 <form className="register_form"
                       onSubmit={handleSubmit(async (currentUserRegistrationInfo) => {
                           const newUserInfo = currentUserRegistrationInfo;
@@ -58,7 +78,8 @@ const RegisterModal = ({open, setIsOpen}) => {
                               firstName, 
                               lastName,
                               email,
-                              password
+                              password,
+                              confirmPassword
                           } = newUserInfo;
 
                           try {
@@ -91,13 +112,9 @@ const RegisterModal = ({open, setIsOpen}) => {
                     </p>
                     <input
                         className="firstName_input text_input"
-                        {...register(
-                            "firstName",
-                            {
-                                required: true
-                            })}
+                        {...register('firstName')} 
                     />
-                    {errors.firstName && <p className="required_message">This field is required</p>}
+                    <p>{errors.firstName?.message}</p>
 
                     <p className={"label_star input_title"}>
                         <span className="required_star">*</span>
@@ -105,13 +122,9 @@ const RegisterModal = ({open, setIsOpen}) => {
                     </p>
                     <input
                         className="lastName_input text_input"
-                        {...register(
-                            "lastName",
-                            {
-                                required: true
-                            })}
+                        {...register('lastName')} 
                     />
-                    {errors.firstName && <p className="required_message">This field is required</p>}
+                    <p>{errors.lastName?.message}</p>
 
                     <p className="email_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -119,16 +132,11 @@ const RegisterModal = ({open, setIsOpen}) => {
                     </p>
                     <input
                         className="email_input text_input"
-                        {...register(
-                            "email",
-                            {
-                                required: true,
-                                pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
-                            })}
+                        {...register('email')} 
                     />
-                    {errors.firstName && <p className="required_message">This field is required</p>}
+                    <p>{errors.email?.message}</p>
 
-
+                {/* -------------------- Password Input ---------------------- */}
                     <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>
                         <label htmlFor="password">Password</label>
@@ -136,35 +144,23 @@ const RegisterModal = ({open, setIsOpen}) => {
                     <input
                     type='password'
                     className="password_input text_input"
-                    {...register(
-                        "password",
-                        {
-                            required: true,
-                            minLength: 8,
-                            maxLength: 24
-                        })}
+                    {...register('firstName')} 
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
-                    {errors.firstName && <p className="required_message">This field is required</p>}
-                    {errors?.password?.types?.minLength && <p>password minLength 8</p>}
+                    <p>{errors.password?.message}</p>
 
-                    <p className="password_labelStar label_star input_title">
+                {/* -------------------- Confirm Password Input ---------------------- */}
+                     <p className="password_labelStar label_star input_title">
                         <span className="required_star">*</span>
                         <label htmlFor="password">Confirm Password</label>
                     </p>
                     <input
                     type='password'
                     className="password_input text_input"
-                    {...register(
-                        "password",
-                        {
-                            required: true,
-                            minLength: 8,
-                            maxLength: 24
-                        })}
+                    {...register('confirmPassword')}
                     />
                     {/* <p className="password_length_note">&#x2022;Min 8 characters</p> */}
-                    {errors.firstName && <p className="required_message">This field is required</p>}
+                    <p>{errors.confirmPassword && "Passwords should match"}</p>
 
                     
                     {
