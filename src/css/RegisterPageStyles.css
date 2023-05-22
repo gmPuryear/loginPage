@@ -70,3 +70,7 @@
     font-size: .75em;
     color: rgba(73, 72, 72, 0.5);
 }
+
+.password_input_match {
+    border: 4mm ridge rgba(211, 220, 50, .6);
+}

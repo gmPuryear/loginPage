@@ -39,3 +39,11 @@ body {
     top: 50%;
     left: 50%;
 }
+
+.passes_validation {
+    border: 2px solid rgba(13, 236, 9, 0.6);
+}
+
+.fails_validation {
+    border: 2px solid rgba(236, 9, 9, 0.6);
+}
