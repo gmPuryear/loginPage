@@ -3,10 +3,26 @@ import {useForm} from 'react-hook-form';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import * as yup from "yup";
-import {yupResolver} from "@hookform/resolvers/yup";
+import {yupResolver} from '@hookform/resolvers/yup';
 import RegisterSuccessModal from './RegisterSuccessModal';
 import RegisterModalContext from './RegisterModalContext';
-import RegisterFormSchema from "./RegisterFormSchema";
+// import RegisterFormSchema from "./RegisterFormSchema";
+
+// const RegisterFormSchema = yup.object({
+//     firstName: yup.string().required(),
+//     lastName: yup.string().required(),
+//     email: yup.email().required(),
+//     password: yup.string().minLength(8).required(),
+//     confirmPassword: yup.string().oneOf([yup.ref('password'), null]) // this compares confirm password input to password input
+// })
+
+const RegisterFormSchema = yup.object({
+        firstName: yup.string().required(),
+        lastName: yup.string().required(),
+        email: yup.string().email().required(),
+        password: yup.string().min(8).required(),
+        confirmPassword: yup.string().oneOf([yup.ref('password')], "null") // this compares confirm password input to password input
+    })
 
 
 const RegisterModal = ({open, setIsOpen}) => {
@@ -26,17 +42,8 @@ const RegisterModal = ({open, setIsOpen}) => {
         }
     }
         = useForm({
-            resolver: yupResolver({RegisterFormSchema})
-        });
-        
-        // const schema = yup.object({
-        //     firstName: yup.string().required(),
-        //     lastname: yup.string().required(),
-        //     email: yup.email().required(),
-        //     password: yup.string().minLength(8).required(),
-        //     confirmPassword: yup.string().oneOf([yup.ref('password'), null]).required // this compares confirm password input to password input
-        // })
-    
+            resolver: yupResolver(RegisterFormSchema),
+          });
 
     // useEffect(() => {
     //     if (formState.isSubmitSuccessful) {
@@ -110,7 +117,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         className="firstName_input text_input"
                         {...register('firstName')} 
                     />
-                    <p>{errors.firstName?.message}</p>
+                    {/* <p>{errors.firstName?.message}</p> */}
 
                     <p className={"label_star input_title"}>
                         <span className="required_star">*</span>
@@ -120,7 +127,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         className="lastName_input text_input"
                         {...register('lastName')} 
                     />
-                    <p>{errors.lastName?.message}</p>
+                    {/* <p>{errors.lastName?.message}</p> */}
 
                     <p className="email_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -130,7 +137,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         className="email_input text_input"
                         {...register('email')} 
                     />
-                    <p>{errors.email?.message}</p>
+                    {/* <p>{errors.email?.message}</p> */}
 
                 {/* -------------------- Password Input ---------------------- */}
                     <p className="password_labelStar label_star input_title">
@@ -143,7 +150,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                     {...register('password')} 
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
-                    <p>{errors.password?.message}</p>
+                    {/* <p>{errors.password?.message}</p> */}
 
                 {/* -------------------- Confirm Password Input ---------------------- */}
                      <p className="password_labelStar label_star input_title">
@@ -156,7 +163,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                     {...register('confirmPassword')}
                     />
                     {/* <p className="password_length_note">&#x2022;Min 8 characters</p> */}
-                    <p>{errors.confirmPassword && "Passwords should match"}</p>
+                    {/* <p>{errors.confirmPassword && "Passwords should match"}</p> */}
 
                     
                     {
