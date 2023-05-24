@@ -44,11 +44,16 @@ const LoginPage = () => {
             <form className="login_form" onSubmit={
                 handleSubmit(async (loginUserData) => {
 
+                    
+                    
                 const {
-                    email, 
+                    email,
                     password
                 } = loginUserData;
 
+                loginUserData.email.toLowerCase();
+
+                
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'

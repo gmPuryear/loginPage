@@ -20,8 +20,8 @@ const RegisterFormSchema = yup.object({
         firstName: yup.string().required("Required"),
         lastName: yup.string().required("Required"),
         email: yup.string().email("Must be a valid email").required("Required"),
-        password: yup.string().min(8, "Password must be at least 8 characters").required("Required"),
-        confirmPassword: yup.string().oneOf([yup.ref('password')], "Passwords do not match") // this compares confirm password input to password input
+        password: yup.string().required("Required").min(8, "Password must be at least 8 characters"),
+        confirmPassword: yup.string().required("Required").oneOf([yup.ref('password')], "Passwords do not match") // this compares confirm password input to password input
     })
 
 
@@ -37,8 +37,7 @@ const RegisterModal = ({open, setIsOpen}) => {
         reset,
         watch,
         formState: {
-            errors,
-            isSubmitSuccessful
+            errors
         }
     }
         = useForm({
