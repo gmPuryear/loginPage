@@ -17,11 +17,11 @@ import RegisterModalContext from './RegisterModalContext';
 // })
 
 const RegisterFormSchema = yup.object({
-        firstName: yup.string().required(),
-        lastName: yup.string().required(),
-        email: yup.string().email("Must be a valid email").required("Email is required"),
-        password: yup.string().min(8).required(),
-        confirmPassword: yup.string().oneOf([yup.ref('password')], "null") // this compares confirm password input to password input
+        firstName: yup.string().required("Required"),
+        lastName: yup.string().required("Required"),
+        email: yup.string().email("Must be a valid email").required("Required"),
+        password: yup.string().min(8, "Password must be at least 8 characters").required("Required"),
+        confirmPassword: yup.string().oneOf([yup.ref('password')], "Passwords do not match") // this compares confirm password input to password input
     })
 
 
@@ -42,10 +42,12 @@ const RegisterModal = ({open, setIsOpen}) => {
         }
     }
         = useForm({
+            mode: "onTouched", // Validation is initially triggered on the first blur event. After that, it is triggered on every change event. Blur is when an input loses focus
             resolver: yupResolver(RegisterFormSchema),
           });
 
-          console.log(errors.confirmPassword);
+          const password = watch("password", "");
+
 
     return (
         <>
@@ -111,7 +113,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         className="firstName_input text_input"
                         {...register('firstName')} 
                     />
-                    <p>{errors.firstName?.message}</p>
+                    <p className="error_message">{errors.firstName?.message}</p>
 
                     <p className={"label_star input_title"}>
                         <span className="required_star">*</span>
@@ -121,7 +123,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         className="lastName_input text_input"
                         {...register('lastName')} 
                     />
-                    <p>{errors.lastName?.message}</p>
+                    <p className="error_message">{errors.lastName?.message}</p>
 
                     <p className="email_labelStar label_star input_title">
                         <span className="required_star">*</span>
@@ -132,7 +134,7 @@ const RegisterModal = ({open, setIsOpen}) => {
                         type="email"
                         {...register('email')} 
                     />
-                    <p>{errors.email?.message}</p>
+                    <p className="error_message">{errors.email?.message}</p>
 
                 {/* -------------------- Password Input ---------------------- */}
                     <p className="password_labelStar label_star input_title">
@@ -141,12 +143,12 @@ const RegisterModal = ({open, setIsOpen}) => {
                     </p>
                     <input
                     type='password'
-                    className={errors.confirmPassword ? "fails_validation text_input" : "passes_validation text_input"}ç
-                    // className="password_input text_input"
+                    className="password_input text_input"
                     {...register('password')} 
                     />
                     <p className="password_length_note">&#x2022;Min 8 characters</p>
-                    <p>{errors.password && "Is required"}</p>
+                    {/* <p>{errors.password && "Is required"}</p> */}
+                    <p className="error_message">{errors.password?.message}</p>
 
                 {/* -------------------- Confirm Password Input ---------------------- */}
                      <p className="password_labelStar label_star input_title">
@@ -155,10 +157,11 @@ const RegisterModal = ({open, setIsOpen}) => {
                     </p>
                     <input
                     type='password'
-                    className={errors.confirmPassword ? "fails_validation text_input" : "passes_validation text_input"}
+                    className="password_input text_input"
                     {...register('confirmPassword')}
                     />
                     {/* <p>{errors.confirmPassword && "Passwords should match"}</p> */}
+                    <p className="error_message">{errors.confirmPassword?.message}</p>
                     
                     {
                         userAlreadyExists
