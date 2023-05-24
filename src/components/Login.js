@@ -51,9 +51,9 @@ const LoginPage = () => {
                     password
                 } = loginUserData;
 
-                loginUserData.email.toLowerCase();
+                loginUserData.email = loginUserData.email.toLowerCase();
 
-                
+            
                 const config = {
                     headers: {
                         'Content-Type': 'application/json'
