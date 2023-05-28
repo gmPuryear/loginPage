@@ -1,5 +1,5 @@
 nav {
-    position: sticky;
+    position: fixed;
     display: flex;
     background-color: white;
     box-shadow: 0 0 20px rgba(0, 0, 0, 1);
@@ -8,6 +8,7 @@ nav {
     align-items: center;
     height: 2em;
     width: 100%;
+    z-index: 1;
 }
 
 ul {
