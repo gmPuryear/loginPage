@@ -3,9 +3,15 @@ import {useNavigate} from "react-router-dom";
 import RegisterModal from './RegisterModal';
 import {useForm} from 'react-hook-form';
 import RegisterModalContext from './RegisterModalContext';
+import * as yup from "yup";
+import {yupResolver} from '@hookform/resolvers/yup';
 import axios from 'axios';
 import {useSignIn} from 'react-auth-kit';
 
+const LoginFormSchema = yup.object({
+    email: yup.string().required("Required"),
+    password: yup.string().required("Required")
+});
 
 
 const LoginPage = () => {
@@ -23,7 +29,10 @@ const LoginPage = () => {
             errors,
             isSubmitSuccessful
         }
-    } = useForm();
+    } = useForm({
+        mode: "onTouched", // Validation is initially triggered on the first blur event. After that, it is triggered on every change event. Blur is when an input loses focus
+        resolver: yupResolver(LoginFormSchema)
+    });
 
     // useEffect(() => {
     //     if (formState.isSubmitSuccessful) {
@@ -44,14 +53,12 @@ const LoginPage = () => {
             <form className="login_form" onSubmit={
                 handleSubmit(async (loginUserData) => {
 
-                    
-                    
                 const {
                     email,
                     password
                 } = loginUserData;
 
-                loginUserData.email = loginUserData.email.toLowerCase();
+                loginUserData.email = loginUserData.email.toLowerCase(); // making it so that the login email is not case sensitive
 
             
                 const config = {
@@ -95,7 +102,7 @@ const LoginPage = () => {
                                required: true,
                            })
                 }/>
-                {errors.email && <p className='required_message'>This field is required</p>}
+                {<p className="error_message">{errors.email?.message}</p>}
 
                 <p className="login_password_label" htmlFor="password">Password</p>
                 <input className="login_password_input" type='password' 
@@ -106,7 +113,7 @@ const LoginPage = () => {
                                 maxLength: 24
                             })
                 }/>
-                {errors.password && <p className='required_message'>This field is required</p>}
+                <p className="error_message">{errors.password?.message}</p>
 
                 <button className="login_submit_btn btn" type="submit">Login</button>
             </form>

@@ -6,15 +6,6 @@ import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import RegisterSuccessModal from './RegisterSuccessModal';
 import RegisterModalContext from './RegisterModalContext';
-// import RegisterFormSchema from "./RegisterFormSchema";
-
-// const RegisterFormSchema = yup.object({
-//     firstName: yup.string().required(),
-//     lastName: yup.string().required(),
-//     email: yup.email().required(),
-//     password: yup.string().minLength(8).required(),
-//     confirmPassword: yup.string().oneOf([yup.ref('password'), null]) // this compares confirm password input to password input
-// })
 
 const RegisterFormSchema = yup.object({
         firstName: yup.string().required("Required"),
@@ -79,6 +70,8 @@ const RegisterModal = ({open, setIsOpen}) => {
                               password,
                               confirmPassword
                           } = newUserInfo;
+
+                          newUserInfo.email = newUserInfo.email.toLowerCase(); // makes email case insensitive
 
                           try {
                               const config = {
