@@ -20,7 +20,7 @@ const AboutPage = () => {
                 
                 <p className="about_paragraph_line">
                     This is my first full stack web app using the MERN stack (MongoDB, Express JS, React, Node JS). With this
-                    project, I wanted to practice building a registration and login page as well as implement authentication. 
+                    project, I wanted to practice building a registration and login page with authentication. 
                 </p>
 
                 <br/>
@@ -31,13 +31,14 @@ const AboutPage = () => {
                     I used <a href="https://authkit.arkadip.dev/" target="_blank"> <u>React Auth Kit</u> </a>
                     for authentication on the front-end as well as for authentication state management. Using React Auth kit 
                     helped immensely as it prevented me from having to constantly make calls to the backend to check if a user is 
-                    logged in or not as well as provided easy means to implement login.
+                    logged in or not as well as provided easy means to implement user login.
                 </p>
 
                 <p className="about_paragraph_line"> 
-                    In order to build forms efficiently an effectively, I used the 
+                    In order to build forms efficiently an effectively, I used both
                     <a href="https://react-hook-form.com/" target="_blank"> <u>React Hook Form</u> </a>
-                    for form validation, and error handling. By using this I was able to remove any unnecessary re-renders.
+                    and <a href="https://www.npmjs.com/package/yup" target="_blank"><u>Yup shema builder.</u></a>
+                    By using both of these I was able to implement validation while eliminating unnecessary re-renders.
                 </p>
 
                 <br/>
