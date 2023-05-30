@@ -1,5 +1,6 @@
 .about_text_container {
-    /* position: absolute; */
+    position: absolute;
+    top: 5%;
     display: grid;
     grid-column: 1;
     place-items: center;
